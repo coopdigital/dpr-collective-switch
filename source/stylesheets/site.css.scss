@@ -1,24 +1,410 @@
-body {
-  background-color: #fbc547;
-  color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
-    "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
-    "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
-    "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
-  padding: 18vh 1rem;
-  text-align: center;
+@import 'normalize';
+@import 'simple-grid';
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
 }
 
-a {
-  color: rgba(#000, 0.7);
+$green : #5DF35C;
+$blue : #22ADC2;
+$pink : #F35C9F;
+$light-grey: #F3F3F3;
+$dark-grey: #736F66;
+$white: #FFFFFF;
 
-  &:focus,
-  &:hover {
-    color: rgba(#000, 0.6);
+a {
+  color: inherit;
+}
+
+body {
+  color: $dark-grey;
+  font-weight: 400;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: darken($blue,10);
+}
+
+h1 {
+  @media only screen and (min-width: $breakpoint-large) {
+    margin-top: 2.4rem;
+    font-size: 2.8rem;
+    line-height: 1.4;
   }
 }
 
-.middleman-logo {
-  margin-bottom: 1rem;
-  width: 10rem;
+h1,h2,h3 {
+  @media only screen and (min-width: $breakpoint-large) {
+    margin-top: 4rem;
+  }
+}
+
+p {
+  line-height: 1.6;
+}
+
+ul li {
+  font-size: 24px;
+}
+
+.prototype-header {
+  background: orange;
+  border-bottom: 1px solid #D08600;
+  text-align: center;
+  padding: 0.25em;
+  p {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: inherit;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dotted #fff;
+  }
+}
+
+.tagline {
+  color: white;
+  font-weight: $font-weight-regular;
+  max-width: 600px;
+  @media only screen and (min-width: $breakpoint-large) {
+    font-size: 2rem;
+    line-height: 1.4;
+  }
+}
+
+.banner {
+  background: $blue;
+  color: $white;
+  @media only screen and (min-width: $breakpoint-med) {
+    padding: 0 0 3rem 0;
+  }
+  header {
+    &.row {
+      display: flex;
+      flex-wrap: wrap;
+      h1 {
+        color: $white;
+        line-height: 1.2;
+        @media only screen and (min-width: $breakpoint-large) {
+          margin-top: 4.4rem;
+          font-size: 72px;
+          line-height: 1.2;
+          width: 90%;
+        }
+      }
+      p {
+        @extend .tagline;
+      }
+      .col-3 {
+        display: inline-table;
+        position: relative;
+        z-index: 1;
+        padding: 1rem 0 0 0;
+        @media only screen and (max-width: $breakpoint-med) {
+          width: auto;
+        }
+        @media only screen and (min-width: $breakpoint-med) {
+          order: 2;
+          padding: 5.6rem 0 0 0;
+        }
+        &:before {
+          border-bottom-left-radius: 0.2rem;
+          border-bottom-right-radius: 0.2rem;
+          z-index: -1;
+          content: '';
+          position: absolute;
+          background: white;
+          display: block;
+          width: calc(100% + 2rem);
+          height: calc(100% + 2rem);
+          top: -1rem;
+          left: -1rem;
+          right: -1rem;
+        }
+        img {
+          &:nth-of-type(1) {
+            margin: 0 1rem 0 0;
+          }
+          &:nth-of-type(2) {
+            margin: 2.4rem 0 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.headlines {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.colophon {
+  @media only screen and (max-width: $breakpoint-med) {
+    padding: 1.6rem 1rem 1rem 1rem;
+    width: auto;
+    background: $light-grey;
+    position: relative;
+    left: -1rem;
+    top: -0.5rem;
+  }
+
+  @media only screen and (min-width: $breakpoint-med) {
+    order: 10; // last element
+    padding-top: 3.6rem;
+  }
+  p {
+    font-size: 14px;
+    max-width: 160px;
+  }
+  span {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+}
+
+h2 {
+  max-width: 600px;
+  line-height: 1.2;
+  @media only screen and (min-width: $breakpoint-large) {
+    font-size: 36px;
+    line-height: 1.4;
+  }
+}
+
+p {
+  @media only screen and (min-width: $breakpoint-large) {
+    font-size: 24px;
+  }
+}
+
+table {
+  position: relative;
+  z-index: -1;
+  width: calc(100% + 4rem);
+  border-radius: 0.2rem;
+  text-align: left;
+  background: $white;
+  position: relative;
+  padding: 2rem;
+  left: -2rem;
+
+  thead, tbody {
+    tr {
+      td {
+        width: 20%;
+      }
+    }
+  }
+
+  thead {
+    tr {
+      border-bottom: 1px solid $light-grey;
+      th {
+        padding-bottom: 1.4rem;
+      }
+    }
+  }
+  tr {
+    vertical-align: baseline;
+    th {
+      span {
+        border-bottom: 1px solid $green;
+        padding-bottom: 0.4rem;
+      }
+    }
+  }
+  td {
+    padding: 0.4rem 0;
+    &.highlight {
+      span {
+        color: darken($dark-grey,20);
+        font-weight: 500;
+        position: relative;
+        z-index: 0;
+        &:before {
+          z-index: -1;
+          content: '';
+          position: absolute;
+          top: -0.4rem;
+          left: -0.4rem;
+          width: calc(100% + 0.8rem);
+          height: calc(100% + 0.8rem);
+          background: $green;
+
+        }
+      }
+    }
+  }
+}
+
+section {
+  &.answer {
+    @media only screen and (min-width: $breakpoint-large) {
+      position: relative;
+      padding: 0 0 4rem 0;
+      margin: 4rem 0;
+      &:before {
+        z-index: -2;
+        content: '';
+        background: rgba(lighten($green,30),0.5);
+        position: absolute;
+        display: block;
+        width: calc(100% + 8rem);
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: -4rem;
+        border-radius: 0.2rem;
+      }
+    }
+    h1,h2 {
+      color: darken($green,25);
+      @media only screen and (max-width: $breakpoint-large) {
+        padding-top: 0;
+      }
+    }
+    .bulb-step {
+      img {
+        width: 48px;
+      }
+      h3 {
+        margin-top: 1rem;
+        color: darken($green,25);
+        margin-bottom: 0;
+      }
+      p {
+        margin-top: 0;
+        font-size: 1rem;
+      }
+    }
+  }
+  &.how-it-works {
+    margin-bottom: 2rem;
+    h1 {
+      color: darken($green,25);
+      @media only screen and (max-width: $breakpoint-large) {
+        padding-top: 0;
+      }
+    }
+    .row {
+      &:nth-of-type(2) {
+        margin: 2rem 0 0 0;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    svg.lightbulb {
+      position: absolute;
+      left: calc(50% - 16px);
+      top: -19px;
+
+    }
+
+    .bulb-step {
+      position: relative;
+      padding-top: 3em;
+      margin-bottom: 4rem;
+      @media only screen and (min-width: $breakpoint-large) {
+        margin-bottom: 2rem;
+      }
+      .bulb-number {
+        position: absolute;
+        z-index: 2;
+        top: -26px;
+        left: 0;
+        width: 48px;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: left;
+        color: darken($green,25);
+        font-weight: 500;
+        font-size: 1.5em;
+        text-align: center;
+      }
+
+      img {
+        position: absolute;
+        width: 48px;
+        top: -31px;
+        left: 0;
+      }
+
+      .step-description {
+        margin-top: 0;
+        h3 {
+          font-size: 1.3em;
+          color: darken($green,25);
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+div.cta {
+  background: $pink;
+  margin: 2rem 0;
+  @media only screen and (min-width: $breakpoint-large) {
+    padding: 2rem 0;
+    margin: 4rem 0;
+  }
+  section {
+    h1, h2 {
+      color: $white;
+      font-weight: 700;
+    }
+    p {
+      @extend .tagline;
+    }
+    .button {
+      margin: 4rem 0 4rem 0;
+      a {
+        background: $white;
+        padding: 1.5rem 2rem;
+        color: $pink;
+        font-weight: 500;
+        @include border-radius(0.5em);
+        text-decoration: none;
+        &:hover {
+          color: darken($pink, 20);
+        }
+      }
+    }
+  }
+
+}
+
+footer {
+  background: darken($dark-grey, 20);
+  color: $white;
+  .colophon {
+    @media only screen and (min-width: $breakpoint-med) {
+      padding-top: 0;
+    }
+  }
+  @media only screen and (min-width: $breakpoint-large) {
+    margin: 8rem 0 0 0;
+    padding: 4rem 0;
+    img {
+      &:nth-of-type(1) {
+        margin-bottom: 2.4rem;
+      }
+    }
+  }
+  p {
+    font-size: 1rem;
+    color: $white;
+    max-width: 460px;
+  }
 }
