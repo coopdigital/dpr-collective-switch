@@ -24,13 +24,15 @@ title: Swinton Fitzwilliam’s Green Energy Switch
     </div>
     <div class="col-9 proposition">
       <h2>Progress so far</h2>
-      <p>3 years ago we installed solar panels on the roof to power our school. These panels, along with our batteries, mean we now benefit from up to 40,000kWh free, renewable electricity each year.</p>
+      <p>3 years ago we installed solar panels on the roof to power our school. These panels, along with our batteries, mean we now benefit from up to 40,000kWh free, renewable electricity each year. That saves about 21 tonnes of carbon each year, while saving us £3,000!</p>
 
-      <p>This July, we’re calling out to parents to pledge to change how they buy their home’s electricity.</p>
+      <%= image_tag "school-with-panel.jpg" %>
+
+      <p><strong>This July, we’re calling out to parents to pledge to change how they buy their home’s electricity.</strong></p>
 
       <p>If 100 families pledge, we’ll reduce Mexborough’s carbon consumption by around 100 tonnes each year - that’s equivalent to taking 19 cars off the road!</p>
 
-      <p>Together, we can help ensure we no longer need to burn fossil fuels.</p>
+      <p>We’ll find the cheapest, greenest provider was can, and together we can help ensure we no longer need to burn fossil fuels.</p>
     </div>
   </div>
 </div>
@@ -38,15 +40,22 @@ title: Swinton Fitzwilliam’s Green Energy Switch
   <div class="container">
     <section class="row">
       <div class="col-8">
-        <h1>Pledge</h1>
 
-        <p>It’s incredibly easy to pledge and because it’s good for the planet it’ll be the last switch you'll need to do.</p>
+        <p class="pledges"><span class="count">43</span> pledges</p>
 
-        <p class="button"><a href="#">Pledge now</a> 42 / 100 pledges</p>
+        <%= image_tag "pledge-count.svg", class: 'counter' %>
+
+        <p class="required-pledges">100</p>
+
+        <p class="button"><a href="#">Pledge now</a></p>
+
+        <p>It’s <strong>incredibly easy</strong> to pledge to switch. Because it’s good for the planet <strong>it’ll be the last switch you'll need to do</strong>.</p>
       </div>
     </section>
   </div>
 </div>
+
+<div class="background-photo" style="background-image: url(<%= image_path "field.jpg" %>)"></div>
 
 <footer>
   <div class="container">
