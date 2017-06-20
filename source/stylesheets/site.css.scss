@@ -159,10 +159,10 @@ ul li {
 }
 
 .colophon {
+  margin-bottom: 2rem;
   @media only screen and (max-width: $breakpoint-med) {
     padding: 1rem;
     width: auto;
-    background: $light-grey;
     position: relative;
     left: -1rem;
     top: -0.5rem;
@@ -185,7 +185,7 @@ ul li {
     color: $white;
     position: relative;
     padding: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     p.pledges {
       display: inline-block;
       font-size: 1.8rem;
@@ -287,8 +287,10 @@ table {
 
 .green-mission {
   position: relative;
-  @extend .background-plate;
-  background: rgba($green, 0.2);
+  &:before {
+    @extend .background-plate;
+    background: rgba($green, 0.1);
+  }
 }
 
 section {
