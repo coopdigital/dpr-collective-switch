@@ -78,6 +78,34 @@ ul li {
   }
 }
 
+.button {
+  margin: 2rem 0 4rem 0;
+  a {
+    background: $white;
+    padding: 1.5rem 2rem;
+    color: $pink;
+    font-weight: 500;
+    @include border-radius(0.5em);
+    text-decoration: none;
+    &:hover {
+      color: darken($pink, 20);
+    }
+  }
+}
+
+.background-plate {
+  border-radius: 0.2rem;
+  z-index: -1;
+  content: '';
+  position: absolute;
+  display: block;
+  width: calc(100% + 2rem);
+  height: calc(100% + 2rem);
+  top: -1rem;
+  left: -1rem;
+  right: -1rem;
+}
+
 .banner {
   background: $blue;
   color: $white;
@@ -108,26 +136,29 @@ ul li {
         padding: 1rem 0 0 0;
         @media only screen and (max-width: $breakpoint-med) {
           width: auto;
+          background: $white;
+          padding: 1rem;
+          border-radius: 0.2rem;
+          &:before {
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+          }
         }
         @media only screen and (min-width: $breakpoint-med) {
           order: 2;
-          padding: 5.6rem 0 0 0;
+          padding: 4rem 0 0 0;
         }
         &:before {
-          border-bottom-left-radius: 0.2rem;
-          border-bottom-right-radius: 0.2rem;
-          z-index: -1;
-          content: '';
-          position: absolute;
-          background: white;
-          display: block;
-          width: calc(100% + 2rem);
-          height: calc(100% + 2rem);
-          top: -1rem;
-          left: -1rem;
-          right: -1rem;
+          @extend .background-plate;
+          background: $white;
         }
         img {
+          @media only screen and (max-width: $breakpoint-med) {
+            max-width: 6rem;
+          }
           max-width: 100%;
         }
       }
@@ -141,18 +172,16 @@ ul li {
 }
 
 .colophon {
+  margin-bottom: 2rem;
   @media only screen and (max-width: $breakpoint-med) {
-    padding: 1.6rem 1rem 1rem 1rem;
+    padding: 1rem;
     width: auto;
-    background: $light-grey;
     position: relative;
-    left: -1rem;
     top: -0.5rem;
   }
 
   @media only screen and (min-width: $breakpoint-med) {
     order: 10; // last element
-    padding-top: 3.6rem;
   }
   p {
     font-size: 14px;
@@ -162,6 +191,34 @@ ul li {
     display: block;
     font-size: 0.8rem;
     margin-bottom: 0.4rem;
+  }
+
+  .cta {
+    color: $white;
+    position: relative;
+    padding: 0;
+    margin-bottom: 4rem;
+    p.pledges {
+      display: inline-block;
+      font-size: 1.8rem;
+      margin: 1rem 0;
+      span.count {
+        font-size: 4.6rem;
+        line-height: 0.8;
+      }
+    }
+    &:before {
+      @extend .background-plate;
+      background: $pink;
+    }
+
+    .button {
+      font-size: 1.2rem;
+      a {
+        padding: 1rem 1.5rem;
+      }
+      margin-bottom: 2rem;
+    }
   }
 }
 
@@ -237,6 +294,14 @@ table {
         }
       }
     }
+  }
+}
+
+.green-mission {
+  position: relative;
+  &:before {
+    @extend .background-plate;
+    background: rgba($green, 0.1);
   }
 }
 
@@ -348,10 +413,11 @@ section {
 }
 
 div.cta {
+  color: $white;
   background: $pink;
   margin: 2rem 0 0 0;
   @media only screen and (min-width: $breakpoint-large) {
-    padding: 2rem 0 0 0;
+    padding: 2rem 0;
     margin: 4rem 0 0 0;
   }
   section {
@@ -362,20 +428,7 @@ div.cta {
     p {
       @extend .tagline;
     }
-    .button {
-      margin: 2rem 0 4rem 0;
-      a {
-        background: $white;
-        padding: 1.5rem 2rem;
-        color: $pink;
-        font-weight: 500;
-        @include border-radius(0.5em);
-        text-decoration: none;
-        &:hover {
-          color: darken($pink, 20);
-        }
-      }
-    }
+    @extend .button;
   }
 
 }
@@ -384,6 +437,7 @@ footer {
   background: darken($dark-grey, 20);
   color: $white;
   .colophon {
+    padding: auto 0 0 0;
     @media only screen and (min-width: $breakpoint-med) {
       padding-top: 0;
     }
@@ -412,14 +466,15 @@ img {
   }
 }
 
-p.pledges {
+.pledges {
   margin-bottom: 0;
   .count {
     font-size: 1.5em;
   }
 }
 
-p.required-pledges {
+.required-pledges {
+  display: block;
   margin-top: 0;
   text-align: right;
   opacity: 0.5;
@@ -432,8 +487,5 @@ p.required-pledges {
   @media screen and (min-width: 768px) {
     height: 500px;
   }
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
 }
