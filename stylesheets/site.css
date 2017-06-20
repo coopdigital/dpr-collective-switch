@@ -81,7 +81,7 @@ p {
 
 .row [class^="col"] {
   float: left;
-  margin: 0.5rem 2%;
+  margin: 0.5rem 1.96%;
   min-height: 0.125rem; }
 
 .row::after {
@@ -219,6 +219,9 @@ ul li {
     text-decoration: none;
     border-bottom: 1px dotted #fff; }
 
+.proposition img {
+  width: 100%; }
+
 .tagline, .banner header.row p, div.cta section p {
   color: white;
   font-weight: 400;
@@ -227,6 +230,30 @@ ul li {
     .tagline, .banner header.row p, div.cta section p {
       font-size: 1.8rem;
       line-height: 1.4; } }
+
+.button, div.cta section {
+  margin: 2rem 0 4rem 0; }
+  .button a, div.cta section a {
+    background: #FFFFFF;
+    padding: 1.5rem 2rem;
+    color: #F35C9F;
+    font-weight: 500;
+    border-radius: 0.5em;
+    text-decoration: none; }
+    .button a:hover, div.cta section a:hover {
+      color: #d91069; }
+
+.background-plate, .banner header.row .col-3:before, .colophon .cta:before, .green-mission:before {
+  border-radius: 0.2rem;
+  z-index: -1;
+  content: '';
+  position: absolute;
+  display: block;
+  width: calc(100% + 2rem);
+  height: calc(100% + 2rem);
+  top: -1rem;
+  left: -1rem;
+  right: -1rem; }
 
 .banner {
   background: #22ADC2;
@@ -256,28 +283,30 @@ ul li {
       padding: 1rem 0 0 0; }
       @media only screen and (max-width: 45em) {
         .banner header.row .col-3 {
-          width: auto; } }
+          width: auto;
+          background: #FFFFFF;
+          padding: 1rem;
+          border-radius: 0.2rem; }
+          .banner header.row .col-3:before {
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 0;
+            height: 0; } }
       @media only screen and (min-width: 45em) {
         .banner header.row .col-3 {
           -webkit-box-ordinal-group: 3;
               -ms-flex-order: 2;
                   order: 2;
-          padding: 5.6rem 0 0 0; } }
+          padding: 4rem 0 0 0; } }
       .banner header.row .col-3:before {
-        border-bottom-left-radius: 0.2rem;
-        border-bottom-right-radius: 0.2rem;
-        z-index: -1;
-        content: '';
-        position: absolute;
-        background: white;
-        display: block;
-        width: calc(100% + 2rem);
-        height: calc(100% + 2rem);
-        top: -1rem;
-        left: -1rem;
-        right: -1rem; }
+        background: #FFFFFF; }
       .banner header.row .col-3 img {
-        max-width: 100%; }
+        max-width: 100%;
+        width: 100%; }
+        @media only screen and (max-width: 45em) {
+          .banner header.row .col-3 img {
+            max-width: 6rem; } }
 
 .headlines {
   display: -webkit-box;
@@ -286,27 +315,45 @@ ul li {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
 
-@media only screen and (max-width: 45em) {
-  .colophon {
-    padding: 1.6rem 1rem 1rem 1rem;
-    width: auto;
-    background: #F3F3F3;
+.colophon {
+  margin-bottom: 2rem; }
+  @media only screen and (max-width: 45em) {
+    .colophon {
+      padding: 1rem;
+      width: auto;
+      position: relative;
+      top: -0.5rem; } }
+  @media only screen and (min-width: 45em) {
+    .colophon {
+      -webkit-box-ordinal-group: 11;
+          -ms-flex-order: 10;
+              order: 10; } }
+  .colophon p {
+    font-size: 14px;
+    max-width: 160px; }
+  .colophon span {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem; }
+  .colophon .cta {
+    color: #FFFFFF;
     position: relative;
-    left: -1rem;
-    top: -0.5rem; } }
-@media only screen and (min-width: 45em) {
-  .colophon {
-    -webkit-box-ordinal-group: 11;
-        -ms-flex-order: 10;
-            order: 10;
-    padding-top: 3.6rem; } }
-.colophon p {
-  font-size: 14px;
-  max-width: 160px; }
-.colophon span {
-  display: block;
-  font-size: 0.8rem;
-  margin-bottom: 0.4rem; }
+    padding: 0;
+    margin-bottom: 4rem; }
+    .colophon .cta p.pledges {
+      display: inline-block;
+      font-size: 1.8rem;
+      margin: 1rem 0; }
+      .colophon .cta p.pledges span.count {
+        font-size: 4.6rem;
+        line-height: 0.8; }
+    .colophon .cta:before {
+      background: #F35C9F; }
+    .colophon .cta .button, .colophon div.cta section {
+      font-size: 1.2rem;
+      margin-bottom: 2rem; }
+      .colophon .cta .button a, .colophon div.cta section a {
+        padding: 1rem 1.5rem; }
 
 h2 {
   max-width: 600px;
@@ -357,6 +404,11 @@ table {
         width: calc(100% + 0.8rem);
         height: calc(100% + 0.8rem);
         background: #5DF35C; }
+
+.green-mission {
+  position: relative; }
+  .green-mission:before {
+    background: rgba(93, 243, 92, 0.1); }
 
 @media only screen and (min-width: 60em) {
   section.answer {
@@ -437,33 +489,25 @@ section.how-it-works {
         margin-top: 0; }
 
 div.cta {
+  color: #FFFFFF;
   background: #F35C9F;
   margin: 2rem 0 0 0; }
   @media only screen and (min-width: 60em) {
     div.cta {
-      padding: 2rem 0 0 0;
+      padding: 2rem 0;
       margin: 4rem 0 0 0; } }
   div.cta section h1, div.cta section h2 {
     color: #FFFFFF;
     font-weight: 700; }
-  div.cta section .button {
-    margin: 2rem 0 4rem 0; }
-    div.cta section .button a {
-      background: #FFFFFF;
-      padding: 1.5rem 2rem;
-      color: #F35C9F;
-      font-weight: 500;
-      border-radius: 0.5em;
-      text-decoration: none; }
-      div.cta section .button a:hover {
-        color: #d91069; }
 
 footer {
   background: #3d3b36;
   color: #FFFFFF; }
-  @media only screen and (min-width: 45em) {
-    footer .colophon {
-      padding-top: 0; } }
+  footer .colophon {
+    padding: auto 0 0 0; }
+    @media only screen and (min-width: 45em) {
+      footer .colophon {
+        padding-top: 0; } }
   @media only screen and (min-width: 60em) {
     footer {
       margin: 0;
@@ -481,12 +525,13 @@ img {
     width: 100%;
     height: 20px; }
 
-p.pledges {
+.pledges {
   margin-bottom: 0; }
-  p.pledges .count {
+  .pledges .count {
     font-size: 1.5em; }
 
-p.required-pledges {
+.required-pledges {
+  display: block;
   margin-top: 0;
   text-align: right;
   opacity: 0.5; }
