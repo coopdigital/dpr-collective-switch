@@ -136,6 +136,16 @@ ul li {
         padding: 1rem 0 0 0;
         @media only screen and (max-width: $breakpoint-med) {
           width: auto;
+          background: $white;
+          padding: 1rem;
+          border-radius: 0.2rem;
+          &:before {
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+          }
         }
         @media only screen and (min-width: $breakpoint-med) {
           order: 2;
@@ -146,6 +156,9 @@ ul li {
           background: $white;
         }
         img {
+          @media only screen and (max-width: $breakpoint-med) {
+            max-width: 6rem;
+          }
           max-width: 100%;
         }
       }
@@ -164,7 +177,6 @@ ul li {
     padding: 1rem;
     width: auto;
     position: relative;
-    left: -1rem;
     top: -0.5rem;
   }
 
