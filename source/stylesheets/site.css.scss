@@ -285,6 +285,12 @@ table {
   }
 }
 
+.green-mission {
+  position: relative;
+  @extend .background-plate;
+  background: rgba($green, 0.2);
+}
+
 section {
   &.answer {
     @media only screen and (min-width: $breakpoint-large) {
