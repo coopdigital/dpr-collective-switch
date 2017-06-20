@@ -78,6 +78,34 @@ ul li {
   }
 }
 
+.button {
+  margin: 2rem 0 4rem 0;
+  a {
+    background: $white;
+    padding: 1.5rem 2rem;
+    color: $pink;
+    font-weight: 500;
+    @include border-radius(0.5em);
+    text-decoration: none;
+    &:hover {
+      color: darken($pink, 20);
+    }
+  }
+}
+
+.background-plate {
+  border-radius: 0.2rem;
+  z-index: -1;
+  content: '';
+  position: absolute;
+  display: block;
+  width: calc(100% + 2rem);
+  height: calc(100% + 2rem);
+  top: -1rem;
+  left: -1rem;
+  right: -1rem;
+}
+
 .banner {
   background: $blue;
   color: $white;
@@ -111,21 +139,11 @@ ul li {
         }
         @media only screen and (min-width: $breakpoint-med) {
           order: 2;
-          padding: 5.6rem 0 0 0;
+          padding: 4rem 0 0 0;
         }
         &:before {
-          border-bottom-left-radius: 0.2rem;
-          border-bottom-right-radius: 0.2rem;
-          z-index: -1;
-          content: '';
-          position: absolute;
-          background: white;
-          display: block;
-          width: calc(100% + 2rem);
-          height: calc(100% + 2rem);
-          top: -1rem;
-          left: -1rem;
-          right: -1rem;
+          @extend .background-plate;
+          background: $white;
         }
         img {
           max-width: 100%;
@@ -142,7 +160,7 @@ ul li {
 
 .colophon {
   @media only screen and (max-width: $breakpoint-med) {
-    padding: 1.6rem 1rem 1rem 1rem;
+    padding: 1rem;
     width: auto;
     background: $light-grey;
     position: relative;
@@ -152,7 +170,6 @@ ul li {
 
   @media only screen and (min-width: $breakpoint-med) {
     order: 10; // last element
-    padding-top: 3.6rem;
   }
   p {
     font-size: 14px;
@@ -162,6 +179,18 @@ ul li {
     display: block;
     font-size: 0.8rem;
     margin-bottom: 0.4rem;
+  }
+
+  .cta {
+    color: $white;
+    position: relative;
+    padding: 0;
+    margin-bottom: 2rem;
+
+    &:before {
+      @extend .background-plate;
+      background: $pink;
+    }
   }
 }
 
@@ -362,20 +391,7 @@ div.cta {
     p {
       @extend .tagline;
     }
-    .button {
-      margin: 2rem 0 4rem 0;
-      a {
-        background: $white;
-        padding: 1.5rem 2rem;
-        color: $pink;
-        font-weight: 500;
-        @include border-radius(0.5em);
-        text-decoration: none;
-        &:hover {
-          color: darken($pink, 20);
-        }
-      }
-    }
+    @extend .button;
   }
 
 }
@@ -432,8 +448,5 @@ p.required-pledges {
   @media screen and (min-width: 768px) {
     height: 500px;
   }
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
 }
