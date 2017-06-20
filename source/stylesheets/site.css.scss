@@ -437,6 +437,7 @@ footer {
   background: darken($dark-grey, 20);
   color: $white;
   .colophon {
+    padding: auto 0 0 0;
     @media only screen and (min-width: $breakpoint-med) {
       padding-top: 0;
     }
