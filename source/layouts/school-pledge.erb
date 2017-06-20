@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title><%= current_page.data.school_name %>'s Green Energy Switch</title>
+    <%= stylesheet_link_tag "site" %>
+    <%= javascript_include_tag "site" %>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+  </head>
+  <body>
+
+
+
+    <%= yield %>
+
+<div class="banner">
+  <div class="container">
+    <header class="row">
+      <div class="col-3">
+        <%= image_tag "fitz.jpg", class: "" %>
+      </div>
+      <div class="col-9">
+        <h1>Help us raise money by going green</h1>
+        <p>Join <%= current_page.data.school_name %>’s Green Energy Switch!</p>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row headlines">
+    <div class="col-3 colophon">
+
+      <div class="cta">
+
+        <p class="pledges"><span class="count"><%= current_page.data.pledges_got %></span> pledges</p>
+
+        <%= image_tag "pledge-count.svg", class: 'counter' %>
+
+        <span class="required-pledges"><%= current_page.data.pledges_needed %></span>
+
+        <p class="button"><a href="#">Pledge now</a></p>
+
+        <p>We need <%= current_page.data.pledges_needed %> families to pledge before we can start our green energy switch and raise money for our library.</p>
+
+      </div>
+      <div class="green-mission">
+        <span>Supported by</span>
+        <%= image_tag "power-pack-supported.svg", class: "" %>
+        <p>Schools around the UK are joining up with Power Pack to help ensure we no longer need to burn fossil fuels. Supported by Co-op.</p>
+      </div>
+    </div>
+    <div class="col-9 proposition">
+      <h2>Story</h2>
+      <p>We’re raising money for <%= current_page.data.raising_money_for %> by asking families to switch to a fantastic, small energy company that provides cheap, clean power.</p>
+
+      <p>When you switch, <%= current_page.data.school_name %> gets £25. If <%= current_page.data.pledges_needed %> families pledge, we’ll be able to buy <%= current_page.data.able_to_buy %>.</p>
+
+      <p>If you've never switched before, green energy will be cheaper and you'll never have to switch again.</p>
+
+      <h2>Going green &mdash; and saving money</h2>
+
+      <%= image_tag "school-with-panel.jpg" %>
+
+      <p><%= current_page.data.eco_text %></p>
+
+      <p>This green switch will reduce our carbon footprint, equivalent to taking around <%= current_page.data.cars_off_the_road %> cars off the road.</p>
+
+      <p><strong>It's in our power, together we can stop burning fossil fuels.</strong></p>
+    </div>
+  </div>
+</div>
+<div class="cta">
+  <div class="container">
+    <section class="row">
+      <div class="col-8">
+
+        <p class="pledges"><span class="count"><%= current_page.data.pledges_got %></span> pledges</p>
+
+        <%= image_tag "pledge-count.svg", class: 'counter' %>
+
+        <span class="required-pledges"><%= current_page.data.pledges_needed %></span>
+
+        <p class="button"><a href="#">Pledge now</a></p>
+
+        <p>We need at least <%= current_page.data.pledges_needed %> families to pledge before we can start our green energy switch and raise money for <%= current_page.data.raising_money_for %>.</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="background-photo" style="background-image: url(<%= image_path "field.jpg" %>)"></div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-9">
+        <p>Power Pack is a community of people on a mission to power Britain purely by renewables.</p>
+        <p>Switching to a green energy provider is the first, simple step you can take on this mission.</p>
+      </div>
+      <div class="col-3 colophon">
+        <span>Supported by</span>
+        <%= image_tag "power-pack-supported-reverse.svg", class: "" %>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+  </body>
+</html>
