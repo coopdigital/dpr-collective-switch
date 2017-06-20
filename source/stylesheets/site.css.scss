@@ -417,7 +417,7 @@ div.cta {
   background: $pink;
   margin: 2rem 0 0 0;
   @media only screen and (min-width: $breakpoint-large) {
-    padding: 2rem 0 0 0;
+    padding: 2rem 0;
     margin: 4rem 0 0 0;
   }
   section {
