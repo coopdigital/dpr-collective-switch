@@ -51,7 +51,11 @@
 
       <figure>
         <%= image_tag current_page.data.slug + '/eco.jpg' %>
-        <figcaption></figcaption>
+        <figcaption>
+          <% if current_page.data.use_figcaption_partial %>
+            <%= partial(current_page.data.slug + '/caption_partial.html') %>
+          <% end %>
+        </figcaption>
       </figure>
 
       <p><%= current_page.data.eco_text %></p>
