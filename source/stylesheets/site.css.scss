@@ -69,8 +69,15 @@ ul li {
 }
 
 .proposition {
-  img {
-    width: 100%;
+  figure {
+    margin: 0;
+    padding: 0;
+    img {
+      width: 100%;
+    }
+    figcaption {
+      font-size: 0.6rem;
+    }
   }
 }
 

@@ -49,7 +49,14 @@
 
       <h2>Going green &mdash; and saving money</h2>
 
-      <%= image_tag current_page.data.slug + '/eco.jpg' %>
+      <figure>
+        <%= image_tag current_page.data.slug + '/eco.jpg' %>
+        <figcaption>
+          <% if current_page.data.use_figcaption_partial %>
+            <%= partial(current_page.data.slug + '/caption_partial.html') %>
+          <% end %>
+        </figcaption>
+      </figure>
 
       <p><%= current_page.data.eco_text %></p>
 
