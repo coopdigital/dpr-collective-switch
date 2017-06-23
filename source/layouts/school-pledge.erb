@@ -1,5 +1,53 @@
 <% wrap_layout :layout do %>
 
+    <div id="modal" class="col-9 modal">
+	<div class="modal-dialog animated">
+	    <div class="modal-content">
+		<form class="form-horizontal" method="get">
+		    <div class="modal-header">
+			<strong>Switch to a green energy company</strong>
+		    </div>
+
+		    <div class="modal-body">
+		      <p>Fill in your contact details so that Power Pack can call you and take care of your switch.</p>
+                      Your full name
+                      [mandatory field]
+
+                      Your telephone number
+                      [mandatory field]
+
+                      If you know the name of your energy company then fill it in. If you don’t know it, it’s OK to leave this blank.
+                      [optional field]
+
+		      <p>
+		      Please confirm that you agree to
+                      </p>
+
+                      <ul>
+			<li>Power Pack calling you to arrange your switch</li>
+		        <li>switching to a green 100% renewable energy company</li>
+			<li>[school name] receiving a payment of [amount]</li>
+		      </ul>
+
+                      <p>
+                      I confirm that I am happy for Power Pack to call me and switch me to a green energy provider, and for [school] to receive a payment from Power Pack for referring me to this scheme.
+                      </p>
+                      [tick box]
+
+                      [submit button]
+		    </div>
+
+		    <div class="modal-footer">
+			<button class="btn btn-primary"
+			  type="submit" onclick="modal.close();">
+			    Close
+			</button>
+		    </div>
+		</form>
+	    </div>
+	</div>
+    </div>
+
 <div class="banner">
   <div class="container">
     <header class="row">
@@ -26,7 +74,7 @@
 
         <span class="required-pledges"><%= current_page.data.pledges_needed %></span>
 
-        <p class="button"><a href="#">Pledge now</a></p>
+        <p class="button"><a href="#" id="showModal">Pledge now</a></p>
 
         <p>We’ve set ourselves a target of getting <%= current_page.data.pledges_needed %> families to switch, which would mean <%= current_page.data.raising_money_for %>.</p>
 
@@ -37,6 +85,9 @@
         <p>Schools around the UK are joining up with Power Pack to help ensure we no longer need to burn fossil fuels. Supported by Co-op.</p>
       </div>
     </div>
+
+
+
     <div class="col-9 proposition">
       <h2>How does changing your energy company pay for <%= current_page.data.able_to_buy %>?</h2>
 
@@ -111,6 +162,7 @@
   </div>
 </div>
 
+
 <footer>
   <div class="container">
     <div class="row">
@@ -126,5 +178,78 @@
   </div>
 </footer>
 
+<%= javascript_include_tag 'rmodal' %>
+
+<script>
+
+  var options = {
+      closeTimeout: 500 // Time to wait (ms) before afterClose() is called
+
+      /**
+       * Callbacks
+       */
+      , beforeOpen: function(next) {
+          console.log('I will execute right before the dialog is shown');
+          next();
+      }
+      , afterOpen: function() {
+          console.log('I will execute just after the dialog is shown');
+      }
+      , beforeClose: function(next) {
+          console.log('I will execute right before the dialog is closed');
+          next();
+      }
+      , afterClose: function() {
+          console.log('I will execute just after the dialog is closed');
+      }
+
+      /**
+       * Classes
+       */
+
+      // Added to body element clases while the modal is opened:
+      , bodyClass: 'modal-open'
+
+      // Always added to dialog element classes:
+      , dialogClass: 'modal-dialog modal-dialog-lg'
+
+      // Added to dialog element classes after it is opened:
+      , dialogOpenClass: 'animated fadeIn'
+
+      // Added to dialog element classes before it is closed:
+      , dialogCloseClass: 'animated fadeOut'
+
+      /**
+       * Focus
+       */
+
+      // Set this to "false" to disable focus capture (tab/shit+tab):
+      , focus: true
+
+      // Set this to "false" to disable closing when escape key pressed:
+      , escapeClose: true
+  };
+
+options = {};
+
+window.onload = function() {
+            var modal = new RModal(
+                document.getElementById('modal'),
+                options // See "Options" below details
+            );
+
+            document.addEventListener('keydown', function(ev) {
+                modal.keydown(ev);
+            }, false);
+
+            document.getElementById('showModal')
+            .addEventListener("click", function(ev) {
+                ev.preventDefault();
+                modal.open();
+            }, false);
+
+            window.modal = modal;
+        }
+</script>
 
 <% end %>
