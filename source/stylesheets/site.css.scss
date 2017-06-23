@@ -2,10 +2,7 @@
 @import 'simple-grid';
 
 @mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
+    border-radius: $radius;
 }
 
 $green : #5DF35C;
@@ -183,6 +180,17 @@ ul li {
 .headlines {
   display: flex;
   flex-wrap: wrap;
+}
+
+.steps {
+  img {
+    width: 200px;
+  }
+  h3 {
+    @media only screen and (min-width: $breakpoint-med) {
+      margin-top: 2rem;
+    }
+  }
 }
 
 .colophon {
