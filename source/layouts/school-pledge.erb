@@ -48,11 +48,11 @@
 
       <p>Instead, we want you to switch to a green energy company.</p>
 
-      <p><%= current_page.data.school_name %> has joined up with Power Pack - a green energy co-op who will pay us for every family that switches.</p>
+      <p><%= current_page.data.school_name %> has joined up with Power Pack - a company that helps people switch to green energy.</p>
+
+      <p>Every time a family switches, Power Pack will give our school money for <%= current_page.data.each_pledge_value %>.</p>
 
       <p>And if you get your energy from one of the 'big six' companies, and you've not switched recently, you'll see your bills go down.</p>
-
-      <p>Every time a family switches, our school gets money for <%= current_page.data.each_pledge_value %>.</p>
 
       <p>When <%= current_page.data.pledges_needed %> families switch, we get <%= current_page.data.specific_pledge_need %>.</p>
 
@@ -83,9 +83,9 @@
     <div class="col-9">
       <h2>Why you should switch</h2>
 
-      <p><strong>It's easy</strong> - you answer 2 questions, and we do the rest.</p>
+      <p><strong>It's easy</strong> - you answer 2 questions, and Power Pack will do the rest.</p>
 
-      <p><strong>You only have to do it once</strong> - you’ll be on a variable green tariff that’s always cheaper than the ‘big six’ energy companies standard variable tariff </p>
+      <p><strong>You only have to switch once</strong> - you’ll be on a variable green tariff that’s always cheaper than the ‘big six’ energy companies standard variable tariff </p>
 
     </div>
   </div>
@@ -96,7 +96,7 @@
       <div class="col-8">
 
         <h2>Ready to switch?</h2>
-        <p>Pledge to switch, and help us <%= current_page.data.raising_money_for %></p>
+        <p>Pledge to switch, and help us buy <%= current_page.data.raising_money_for %></p>
 
         <p class="pledges"><span class="count"><%= current_page.data.pledges_got %></span> pledges</p>
 
