@@ -517,6 +517,28 @@ img {
   display: none;
 }
 
+section.modal {
+  position: fixed;
+  z-index: 10;
+
+  top: 0.4rem;
+  right: 0.4rem;
+  bottom: 0.4rem;
+  left: 0.4rem;
+
+  @media only screen and (min-width: $breakpoint-med) {
+    top: 2rem;
+    left: 50%;
+    margin-left: -300px;
+    bottom: 2rem;
+    max-width: 600px;
+  }
+  background: $white;
+  padding: 1.2rem;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 200px $dark-grey;
+}
+
 #pledge-toggle {
   &:checked {
     ~ .modal {
