@@ -90,9 +90,10 @@ ul li {
 
 .button {
   margin: 2rem 0 4rem 0;
-  a {
+  a,label {
+    display: inline-block;
     background: $white;
-    padding: 1.5rem 2rem;
+    padding: 1.2rem 1.4rem;
     color: $pink;
     font-weight: 500;
     @include border-radius(0.5em);
@@ -510,4 +511,16 @@ img {
     height: 500px;
   }
   background-size: cover;
+}
+
+.modal {
+  display: none;
+}
+
+#pledge-toggle {
+  &:checked {
+    ~ .modal {
+      display: block;
+    }
+  }
 }
