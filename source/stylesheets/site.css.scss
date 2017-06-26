@@ -312,6 +312,14 @@ table {
   }
 }
 
+.green-mission {
+  position: relative;
+  &:before {
+    @extend .background-plate;
+    background: rgba($green, 0.1);
+  }
+}
+
 section {
   &.answer {
     @media only screen and (min-width: $breakpoint-large) {
@@ -506,11 +514,11 @@ body {
   &.thanks_index {
     padding: 2rem 0;
     margin-bottom: 4rem;
-    background: $blue;
+    background: $blue;    
   }
 }
 
-section.form-style {
+section.modal-layout {
   max-width: 600px;
   padding: 2.4rem;
   background: $white;
