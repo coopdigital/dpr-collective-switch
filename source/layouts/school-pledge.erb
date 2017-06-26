@@ -1,27 +1,5 @@
 <% wrap_layout :layout do %>
 
-<input type="checkbox" id="pledge-toggle">
-
-<section class="modal">
-  <label for="pledge-toggle">Close</label>
-  Switch to a green energy company
-  Fill in your contact details so that Power Pack can call you and take care of your switch.
-
-  Your full name [mandatory field]
-  Your telephone number [mandatory field]
-
-  If you know the name of your energy company then fill it in. If you don’t know it, it’s OK to leave this blank. [optional field]
-
-  Please confirm that you agree to
-  Power Pack calling you to arrange your switch
-  Switching to a green 100% renewable energy company
-  [school name] receiving a payment of [amount]
-
-  I confirm that I am happy for Power Pack to call me and switch me to a green energy provider, and for [school] to receive a payment from Power Pack for referring me to this scheme. [tick box]
-
-  [submit button]
-</section>
-
 <div class="banner">
   <div class="container">
     <header class="row">
@@ -48,8 +26,7 @@
 
         <span class="required-pledges"><%= current_page.data.pledges_needed %></span>
 
-        <p class="button"><label for="pledge-toggle">Pledge now</label>
-</p>
+        <p class="button"><a href="pledge">Pledge now</a></p>
 
         <p>We’ve set ourselves a target of getting <%= current_page.data.pledges_needed %> families to switch, which would mean <%= current_page.data.raising_money_for %>.</p>
 
@@ -127,7 +104,7 @@
 
         <span class="required-pledges"><%= current_page.data.pledges_needed %></span>
 
-        <p class="button"><label for="pledge-toggle">Pledge now</label></p>
+        <p class="button"><a href="pledge">Pledge now</a></p>
 
       </div>
     </section>
