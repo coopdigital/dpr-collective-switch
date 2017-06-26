@@ -25,14 +25,6 @@ h1,h2,h3,h4,h5,h6 {
   color: darken($blue,10);
 }
 
-h1 {
-  @media only screen and (min-width: $breakpoint-large) {
-    margin-top: 2.4rem;
-    font-size: 1.5rem;
-    line-height: 1.4;
-  }
-}
-
 h1,h2,h3 {
   @media only screen and (min-width: $breakpoint-large) {
     margin-top: 4rem;
@@ -320,14 +312,6 @@ table {
   }
 }
 
-.green-mission {
-  position: relative;
-  &:before {
-    @extend .background-plate;
-    background: rgba($green, 0.1);
-  }
-}
-
 section {
   &.answer {
     @media only screen and (min-width: $breakpoint-large) {
@@ -513,44 +497,49 @@ img {
   background-size: cover;
 }
 
-.modal, input#pledge-toggle {
-  display: none;
+body {
+  &.pledge_index {
+    padding: 2rem 0;
+    margin-bottom: 4rem;
+    background: $pink;
+  }
+  &.thanks_index {
+    padding: 2rem 0;
+    margin-bottom: 4rem;
+    background: $blue;
+  }
 }
 
-section.modal {
-  position: fixed;
-  z-index: 10;
-
-  top: 0.4rem;
-  right: 0.4rem;
-  left: 0.4rem;
-
-  @media only screen and (min-width: $breakpoint-med) {
-    top: 2rem;
-    left: 50%;
-    margin-left: -300px;
-    max-width: 600px;
-  }
-  
+section.form-style {
+  max-width: 600px;
+  padding: 2.4rem;
   background: $white;
-  padding: 1.2rem;
+  margin: 0 auto;
   border-radius: 0.2rem;
-  box-shadow: 0 0 200px $dark-grey;
-
-  label[for="pledge-toggle"]{
-    float: right;
+  h1 {
+    margin-top: 0.8rem;
+  }
+  label {
+    width: 100%;
+    display: inline-block;
+    font-weight: bolder;
+  }
+  label, p {
+    font-size: 1.2rem;
+  }
+  input:not([type="checkbox"]) {
+    display: block;
+    margin: 1rem 0 2rem 0;
+    font-size: 1.8rem;
+    color: $dark-grey;
+    padding: 0.4rem;
   }
 
-  p {
-    font-size: 1rem;
-  }
-
-}
-
-#pledge-toggle {
-  &:checked {
-    ~ .modal {
-      display: block;
+  p.button {
+    a {
+      background: $pink;
+      color: $white;
+      font-size: 1.8rem;
     }
   }
 }
