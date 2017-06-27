@@ -25,14 +25,6 @@ h1,h2,h3,h4,h5,h6 {
   color: darken($blue,10);
 }
 
-h1 {
-  @media only screen and (min-width: $breakpoint-large) {
-    margin-top: 2.4rem;
-    font-size: 1.5rem;
-    line-height: 1.4;
-  }
-}
-
 h1,h2,h3 {
   @media only screen and (min-width: $breakpoint-large) {
     margin-top: 4rem;
@@ -90,9 +82,10 @@ ul li {
 
 .button {
   margin: 2rem 0 4rem 0;
-  a {
+  a,label {
+    display: inline-block;
     background: $white;
-    padding: 1.5rem 2rem;
+    padding: 1.2rem 1.4rem;
     color: $pink;
     font-weight: 500;
     @include border-radius(0.5em);
@@ -510,4 +503,51 @@ img {
     height: 500px;
   }
   background-size: cover;
+}
+
+body {
+  &.pledge_index {
+    padding: 2rem 0;
+    margin-bottom: 4rem;
+    background: $pink;
+  }
+  &.thanks_index {
+    padding: 2rem 0;
+    margin-bottom: 4rem;
+    background: $blue;    
+  }
+}
+
+section.modal-layout {
+  max-width: 600px;
+  padding: 2.4rem;
+  background: $white;
+  margin: 0 auto;
+  border-radius: 0.2rem;
+  h1 {
+    margin-top: 0.8rem;
+  }
+  label {
+    width: 100%;
+    display: inline-block;
+    font-weight: bolder;
+  }
+  label, p {
+    font-size: 1.2rem;
+  }
+  input:not([type="checkbox"]) {
+    display: block;
+    margin: 1rem 0 2rem 0;
+    font-size: 1.8rem;
+    color: $dark-grey;
+    padding: 0.4rem;
+  }
+
+  p.button {
+    a {
+      background: $pink;
+      color: $white;
+      font-size: 1.8rem;
+    }
+  }
 }

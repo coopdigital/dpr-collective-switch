@@ -6,12 +6,12 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title><%= current_page.data.title || "Light House" %></title>
+    <title><%= current_page.data.title || "Power Pack Switch" %></title>
     <%= stylesheet_link_tag "site" %>
     <%= javascript_include_tag "site" %>
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
   </head>
-  <body>
+  <body class="<%= page_classes %>">
     <%= yield %>
     <!-- Start of HubSpot Embed Code -->
       <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3445942.js"></script>
