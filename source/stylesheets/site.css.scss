@@ -320,6 +320,42 @@ table {
   }
 }
 
+.cause-story {
+  background: $light-grey;
+  overflow: hidden;
+  border-radius: 0.2rem;
+  padding: 2rem;
+  .col-2 {
+    background: $white;
+    padding: 1rem 0.2rem;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+  }
+  blockquote {
+    position: relative;
+    background: darken($blue, 10%);
+    color: $white;
+    padding: 0.2rem 2rem;
+    margin: 0;
+    border-radius: 0.2rem;
+    p {
+      max-width: 380px;
+      font-size: 1.6rem;
+    }
+    &:before {
+      position: absolute;
+      content: '';
+      width: 1rem;
+      height: 1rem;
+      display: block;
+      top: 3rem;
+      left: -0.5rem;
+      background: darken($blue, 10%);
+      transform: rotate(45deg);
+    }
+  }
+}
+
 section {
   &.answer {
     @media only screen and (min-width: $breakpoint-large) {
@@ -514,7 +550,7 @@ body {
   &.thanks_index {
     padding: 2rem 0;
     margin-bottom: 4rem;
-    background: $blue;    
+    background: $blue;
   }
 }
 
