@@ -7,8 +7,7 @@
         <%= image_tag current_page.data.slug + '/logo.jpg', class: "" %>
       </div>
       <div class="col-9">
-        <h1>Help us buy <%= current_page.data.raising_money_for %> by switching your energy company </h1>
-
+        <h1>Change your energy company to raise money for <%= current_page.data.school_name %></h1>
       </div>
     </header>
   </div>
@@ -38,27 +37,22 @@
       </div>
     </div>
     <div class="col-9 proposition">
-      <h2>How does changing your energy company pay for <%= current_page.data.able_to_buy %>?</h2>
+      <p><strong>Power Pack is a new way for schools to raise funds without having to ask families for money.</stong></p>
 
-      <p><strong>Confused? That’s fair enough. But here’s the thing.</stong></p>
+      <p>Have you been with the same energy company for a long time?</p>
 
-      <p>We need <%= current_page.data.raising_money_for %>.</p>
+      <p>Switching to a different energy company through Power Pack could save you money, and your school will benefit too.</p>
 
-      <p>We're not asking you for any money.</p>
+      <p>When the school refers a new customer, they get £25 as a thank-you from the energy company.</p>
 
-      <p>Instead, we want you to switch to a green energy company.</p>
-
-      <p><%= current_page.data.school_name %> has joined up with Power Pack - a company that helps people switch to green energy.</p>
-
-      <p>Every time a family switches, Power Pack will give our school money for <%= current_page.data.each_pledge_value %>.</p>
-
-      <p>And if you get your energy from one of the 'big six' companies, and you've not switched recently, you'll see your bills go down.</p>
-
-      <p>When <%= current_page.data.pledges_needed %> families switch, we get <%= current_page.data.specific_pledge_need %>.</p>
-
+      <h2><%= current_page.data.school_name %>'s Story</h2>
+      <blockquote style="border-left: 5px solid grey; padding-left: 10px; margin-left: 0;">
+        <p>Our climbing frame is not safe to use which means we can’t let the children play on it. We’re trying to raise £500 for a completely new climbing frame which will help children’s confidence and fitness. If 20 families switch to a green energy company, we will reach our goal.</p>
+      </blockquote>
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row steps">
     <div class="col-12">
@@ -67,17 +61,17 @@
     <div class="col-4">
       <%= image_tag "icon-pledge.svg", class: "" %>
       <h3>You pledge</h3>
-      <p>Just provide your name, email and address. It’s quick and painless!</p>
+      <p>Provide your name and number - Power Pack will call you back</p>
     </div>
     <div class="col-4">
       <%= image_tag "icon-switch.svg", class: "" %>
       <h3>Power Pack switches</h3>
-      <p>Everything is taken care of - Power Pack sets you up with a cheap green energy company.</p>
+      <p>Power Pack will find you the best 100% green energy deal</p>
     </div>
     <div class="col-4">
       <%= image_tag "icon-benefit.svg", class: "" %>
       <h3>Your school benefits</h3>
-      <p>Your new energy company pays us for helping the switch and we’re able to buy <%= current_page.data.raising_money_for %>.</p>
+      <p>Your new energy company pays your school £25 as a thank-you</p>
     </div>
 
     <div class="col-9">
