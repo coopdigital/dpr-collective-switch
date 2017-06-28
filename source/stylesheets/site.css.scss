@@ -39,6 +39,20 @@ ul li {
   font-size: 24px;
 }
 
+header.platform {
+  padding-top: 0.2rem;
+  position: relative;
+  background: $dark-grey;
+  z-index: 2;
+  span {
+    float: right;
+    background: $green;
+    padding: 0 0.4rem;
+    margin-right: -0.9rem;
+    font-weight: 500;
+  }
+}
+
 .prototype-header {
   background: orange;
   border-bottom: 1px solid #D08600;
