@@ -1,5 +1,16 @@
 <% wrap_layout :layout do %>
 
+<header class="platform">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <%= image_tag "power-pack-logo.svg", class: "" %>
+        <span>This is an example of a school's fundraising page</span>
+      </div>
+    </div>
+  </div>
+</header>
+
 <div class="banner">
   <div class="container">
     <header class="row">
@@ -7,8 +18,7 @@
         <%= image_tag current_page.data.slug + '/logo.jpg', class: "" %>
       </div>
       <div class="col-9">
-        <h1>Help us buy <%= current_page.data.raising_money_for %> by switching your energy company </h1>
-
+        <h1>Change your energy company to raise money for <%= current_page.data.school_name %></h1>
       </div>
     </header>
   </div>
@@ -17,9 +27,7 @@
 <div class="container">
   <div class="row headlines">
     <div class="col-3 colophon">
-
       <div class="cta">
-
         <p class="pledges"><span class="count"><%= current_page.data.pledges_got %></span> pledges</p>
 
         <%= image_tag "pledge-count.svg", class: 'counter' %>
@@ -28,8 +36,7 @@
 
         <p class="button"><a href="pledge">Pledge now</a></p>
 
-        <p>We’ve set ourselves a target of getting <%= current_page.data.pledges_needed %> families to switch, which would mean <%= current_page.data.raising_money_for %>.</p>
-
+        <p><%= current_page.data.school_name %> set a target of getting <%= current_page.data.pledges_needed %> families to switch. Pledge to help them with their fundraising goal.</p>
       </div>
       <div class="green-mission">
         <span>Supported by</span>
@@ -38,27 +45,30 @@
       </div>
     </div>
     <div class="col-9 proposition">
-      <h2>How does changing your energy company pay for <%= current_page.data.able_to_buy %>?</h2>
+      <p><strong>Switching to a different energy company could save you money, and your school will benefit too.</stong></p>
 
-      <p><strong>Confused? That’s fair enough. But here’s the thing.</stong></p>
+      <p>When the school refers a new customer, they get £25 as a thank-you from the energy company.</p>
 
-      <p>We need <%= current_page.data.raising_money_for %>.</p>
+      <h2><%= current_page.data.school_name %>'s Story</h2>
 
-      <p>We're not asking you for any money.</p>
+      <div class="cause-story">
 
-      <p>Instead, we want you to switch to a green energy company.</p>
+        <div class="col-2">
+          <%= image_tag current_page.data.slug + '/logo.jpg', class: "" %>
+        </div>
+        <div class="col-10">
+          <blockquote>
+            <p><%= current_page.data.school_story %></p>
+          </blockquote>
 
-      <p><%= current_page.data.school_name %> has joined up with Power Pack - a company that helps people switch to green energy.</p>
+        </div>
 
-      <p>Every time a family switches, Power Pack will give our school money for <%= current_page.data.each_pledge_value %>.</p>
-
-      <p>And if you get your energy from one of the 'big six' companies, and you've not switched recently, you'll see your bills go down.</p>
-
-      <p>When <%= current_page.data.pledges_needed %> families switch, we get <%= current_page.data.specific_pledge_need %>.</p>
+      </div>
 
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row steps">
     <div class="col-12">
@@ -67,25 +77,25 @@
     <div class="col-4">
       <%= image_tag "icon-pledge.svg", class: "" %>
       <h3>You pledge</h3>
-      <p>Just provide your name, email and address. It’s quick and painless!</p>
+      <p>Provide your name and number - Power Pack will call you back</p>
     </div>
     <div class="col-4">
       <%= image_tag "icon-switch.svg", class: "" %>
       <h3>Power Pack switches</h3>
-      <p>Everything is taken care of - Power Pack sets you up with a cheap green energy company.</p>
+      <p>Power Pack will find you the best 100% green energy deal</p>
     </div>
     <div class="col-4">
       <%= image_tag "icon-benefit.svg", class: "" %>
       <h3>Your school benefits</h3>
-      <p>Your new energy company pays us for helping the switch and we’re able to buy <%= current_page.data.raising_money_for %>.</p>
+      <p>Your new energy company pays your school £25 as a thank-you</p>
     </div>
 
-    <div class="col-9">
+    <div class="col-8">
       <h2>Why you should switch</h2>
 
       <p><strong>It's easy</strong> - you answer 2 questions, and Power Pack will do the rest.</p>
 
-      <p><strong>You only have to switch once</strong> - you’ll be on a variable green tariff that’s always cheaper than the ‘big six’ energy companies standard variable tariff </p>
+      <p><strong>You only have to switch once</strong> - you’ll be on a variable green tariff that’s always cheaper than the ‘big six’ energy companies standard variable tariff.</p>
 
     </div>
   </div>
@@ -94,9 +104,8 @@
   <div class="container">
     <section class="row">
       <div class="col-8">
-
         <h2>Ready to switch?</h2>
-        <p>Pledge to switch, and help us buy <%= current_page.data.raising_money_for %></p>
+        <p>Pledge to switch and help your school reach their fundraising goal.</p>
 
         <p class="pledges"><span class="count"><%= current_page.data.pledges_got %></span> pledges</p>
 
@@ -105,7 +114,6 @@
         <span class="required-pledges"><%= current_page.data.pledges_needed %></span>
 
         <p class="button"><a href="pledge">Pledge now</a></p>
-
       </div>
     </section>
   </div>
