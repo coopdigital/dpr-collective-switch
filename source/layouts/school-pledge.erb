@@ -16,9 +16,7 @@
 <div class="container">
   <div class="row headlines">
     <div class="col-3 colophon">
-
       <div class="cta">
-
         <p class="pledges"><span class="count"><%= current_page.data.pledges_got %></span> pledges</p>
 
         <%= image_tag "pledge-count.svg", class: 'counter' %>
@@ -28,7 +26,6 @@
         <p class="button"><a href="pledge">Pledge now</a></p>
 
         <p>We’ve set ourselves a target of getting <%= current_page.data.pledges_needed %> families to switch, which would mean <%= current_page.data.raising_money_for %>.</p>
-
       </div>
       <div class="green-mission">
         <span>Supported by</span>
@@ -45,10 +42,15 @@
 
       <p>When the school refers a new customer, they get £25 as a thank-you from the energy company.</p>
 
-      <h2><%= current_page.data.school_name %>'s Story</h2>
-      <blockquote style="border-left: 5px solid grey; padding-left: 10px; margin-left: 0;">
-        <p>Our climbing frame is not safe to use which means we can’t let the children play on it. We’re trying to raise £500 for a completely new climbing frame which will help children’s confidence and fitness. If 20 families switch to a green energy company, we will reach our goal.</p>
-      </blockquote>
+      <div class="cause-story">
+
+        <h2><%= current_page.data.school_name %>'s Story</h2>
+        <blockquote>
+          <p>Our climbing frame is not safe to use which means we can’t let the children play on it. We’re trying to raise £500 for a completely new climbing frame which will help children’s confidence and fitness. If 20 families switch to a green energy company, we will reach our goal.</p>
+        </blockquote>
+
+      </div>
+
     </div>
   </div>
 </div>
@@ -79,7 +81,7 @@
 
       <p><strong>It's easy</strong> - you answer 2 questions, and Power Pack will do the rest.</p>
 
-      <p><strong>You only have to switch once</strong> - you’ll be on a variable green tariff that’s always cheaper than the ‘big six’ energy companies standard variable tariff </p>
+      <p><strong>You only have to switch once</strong> - you’ll be on a variable green tariff that’s always cheaper than the ‘big six’ energy companies standard variable tariff.</p>
 
     </div>
   </div>
