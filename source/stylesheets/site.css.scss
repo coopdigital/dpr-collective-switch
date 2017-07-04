@@ -5,9 +5,9 @@
     border-radius: $radius;
 }
 
-$green : #5DF35C;
-$blue : #22ADC2;
-$pink : #F35C9F;
+$green : #149865;
+$blue : #00729a;
+$pink : #149865;
 $light-grey: #F3F3F3;
 $dark-grey: #736F66;
 $white: #FFFFFF;
@@ -42,14 +42,13 @@ ul li {
 header.platform {
   padding-top: 0.2rem;
   position: relative;
-  background: $dark-grey;
+  background: $white;
   z-index: 2;
+  img {
+    width: 48px;
+  }
   span {
-    float: right;
-    color: $green;
-    padding: 0 0.4rem;
-    margin-right: -0.9rem;
-    font-weight: 500;
+
   }
 }
 
