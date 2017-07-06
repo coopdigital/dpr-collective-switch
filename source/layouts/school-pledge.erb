@@ -31,7 +31,7 @@
 
         <p class="pledges"><span class="count"><%= current_page.data.pledges_got %></span><span class="sub-count">families switched</span></p>
 
-        <p class="button"><a href="pledge">Join up</a></p>
+        <p class="button"><%= link_to 'Join up', '/pledge' %></p>
 
         <p><%= current_page.data.school_name %> set a target of getting <%= current_page.data.pledges_needed %> families to switch. Join up to help them with their fundraising goal.</p>
       </div>
