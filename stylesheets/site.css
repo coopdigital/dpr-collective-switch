@@ -292,11 +292,17 @@ header.platform {
   right: -1rem; }
 
 .banner {
-  background: #00729a;
-  color: #FFFFFF; }
+  background: rgba(0, 114, 154, 0.8);
+  color: #FFFFFF;
+  overflow: hidden;
+  position: relative; }
   @media only screen and (min-width: 45em) {
     .banner {
       padding: 0 0 3rem 0; } }
+  .banner img.background-image {
+    position: absolute;
+    z-index: -1;
+    width: 100%; }
   .banner header.row {
     display: -webkit-box;
     display: -ms-flexbox;
