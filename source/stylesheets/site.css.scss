@@ -13,6 +13,8 @@ $light-grey: #F3F3F3;
 $dark-grey: #736F66;
 $white: #FFFFFF;
 
+$cadillac: #9F4D73;
+
 a {
   color: inherit;
 }
@@ -353,7 +355,7 @@ table {
   }
   blockquote {
     position: relative;
-    background: darken($blue, 10%);
+    background: $cadillac;
     color: $white;
     padding: 0.2rem 2rem;
     margin: 0;
@@ -370,7 +372,7 @@ table {
       display: block;
       top: 3rem;
       left: -0.5rem;
-      background: darken($blue, 10%);
+      background: $cadillac;
       transform: rotate(45deg);
     }
   }
