@@ -27,11 +27,9 @@
   <div class="row headlines">
     <div class="col-3 colophon">
       <div class="cta">
-        <p class="pledges"><span class="count"><%= current_page.data.pledges_got %></span> families upgraded</p>
+        <progress value="<%= current_page.data.pledges_got %>" max="40"></progress>
 
-        <%= image_tag "pledge-count.svg", class: 'counter' %>
-
-        <span class="required-pledges"><%= current_page.data.pledges_needed %></span>
+        <p class="pledges"><span class="count"><%= current_page.data.pledges_got %></span><span class="sub-count">families upgraded</span></p>
 
         <p class="button"><a href="pledge">Join up</a></p>
 
@@ -130,7 +128,7 @@
 
         <p class="pledges"><span class="count"><%= current_page.data.pledges_got %></span> pledges</p>
 
-        <%= image_tag "pledge-count.svg", class: 'counter' %>
+        <progress value="<%= current_page.data.pledges_got %>" max="40"></progress>
 
         <span class="required-pledges"><%= current_page.data.pledges_needed %></span>
 
