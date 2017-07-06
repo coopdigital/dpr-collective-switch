@@ -1,4 +1,5 @@
 @import 'normalize';
+@import 'fonts';
 @import 'simple-grid';
 
 @mixin border-radius($radius) {
@@ -18,10 +19,11 @@ a {
 
 body {
   color: $dark-grey;
-  font-weight: 400;
+  font-family: 'AvenirNextLTW01-Medium';
 }
 
 h1,h2,h3,h4,h5,h6 {
+  font-family: 'AvenirNextLTW01-Demi';
   color: darken($blue,10);
 }
 
@@ -89,7 +91,7 @@ header.platform {
 
 .tagline {
   color: white;
-  font-weight: $font-weight-regular;
+  font-weight: 'AvenirNextLTW01-Medium';
   max-width: 600px;
   @media only screen and (min-width: $breakpoint-large) {
     font-size: 1.8rem;

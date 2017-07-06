@@ -59,4 +59,6 @@ activate :livereload
 activate :relative_assets
 set :relative_links, true
 
+set :font_path, 'fonts/'
+
 activate :directory_indexes
