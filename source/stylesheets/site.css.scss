@@ -1,16 +1,19 @@
 @import 'normalize';
+@import 'fonts';
 @import 'simple-grid';
 
 @mixin border-radius($radius) {
     border-radius: $radius;
 }
 
-$green : #5DF35C;
-$blue : #22ADC2;
-$pink : #F35C9F;
+$green : #149865;
+$blue : #00729a;
+$pink : #149865;
 $light-grey: #F3F3F3;
 $dark-grey: #736F66;
 $white: #FFFFFF;
+
+$cadillac: #9F4D73;
 
 a {
   color: inherit;
@@ -18,10 +21,11 @@ a {
 
 body {
   color: $dark-grey;
-  font-weight: 400;
+  font-family: 'AvenirNextLTW01-Medium';
 }
 
 h1,h2,h3,h4,h5,h6 {
+  font-family: 'AvenirNextLTW01-Demi';
   color: darken($blue,10);
 }
 
@@ -42,14 +46,13 @@ ul li {
 header.platform {
   padding-top: 0.2rem;
   position: relative;
-  background: $dark-grey;
+  background: $white;
   z-index: 2;
+  img {
+    width: 69px;
+  }
   span {
-    float: right;
-    color: $green;
-    padding: 0 0.4rem;
-    margin-right: -0.9rem;
-    font-weight: 500;
+
   }
 }
 
@@ -90,7 +93,7 @@ header.platform {
 
 .tagline {
   color: white;
-  font-weight: $font-weight-regular;
+  font-weight: 'AvenirNextLTW01-Medium';
   max-width: 600px;
   @media only screen and (min-width: $breakpoint-large) {
     font-size: 1.8rem;
@@ -142,7 +145,7 @@ header.platform {
         line-height: 1.2;
         @media only screen and (min-width: $breakpoint-large) {
           margin-top: 4.4rem;
-          font-size: 48px;
+          font-size: 72px;
           line-height: 1.2;
           width: 90%;
         }
@@ -170,7 +173,8 @@ header.platform {
         }
         @media only screen and (min-width: $breakpoint-med) {
           order: 2;
-          padding: 4rem 0 0 0;
+          padding: 1rem 0 0 0;
+          margin-top: 4rem;
         }
         &:before {
           @extend .background-plate;
@@ -351,7 +355,7 @@ table {
   }
   blockquote {
     position: relative;
-    background: darken($blue, 10%);
+    background: $cadillac;
     color: $white;
     padding: 0.2rem 2rem;
     margin: 0;
@@ -368,7 +372,7 @@ table {
       display: block;
       top: 3rem;
       left: -0.5rem;
-      background: darken($blue, 10%);
+      background: $cadillac;
       transform: rotate(45deg);
     }
   }
