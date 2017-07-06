@@ -45,7 +45,7 @@ header.platform {
   background: $white;
   z-index: 2;
   img {
-    width: 48px;
+    width: 69px;
   }
   span {
 
@@ -141,7 +141,7 @@ header.platform {
         line-height: 1.2;
         @media only screen and (min-width: $breakpoint-large) {
           margin-top: 4.4rem;
-          font-size: 48px;
+          font-size: 72px;
           line-height: 1.2;
           width: 90%;
         }
@@ -169,7 +169,8 @@ header.platform {
         }
         @media only screen and (min-width: $breakpoint-med) {
           order: 2;
-          padding: 4rem 0 0 0;
+          padding: 2rem 0 0 0;
+          margin-top: 2rem;
         }
         &:before {
           @extend .background-plate;
