@@ -30,7 +30,8 @@ body {
 
 * {
   font-family: "AvenirNextLTW01-Regular", sans-serif;
-  line-height: 1.5; }
+  line-height: 1.5;
+  font-weight: normal; }
 
 h1 {
   font-size: 2.5rem;
@@ -243,6 +244,9 @@ header.platform {
 
 .proposition {
   padding-top: 2rem; }
+  .proposition > h2 {
+    margin: 1rem 0 4rem 0;
+    max-width: 600px; }
   .proposition p {
     max-width: 600px; }
   .proposition figure {
@@ -269,7 +273,7 @@ header.platform {
     background: #FFFFFF;
     padding: 1.2rem 1.4rem;
     color: #149865;
-    font-weight: 500;
+    font-family: 'AvenirNextLTW01-Demi';
     border-radius: 0.5em;
     text-decoration: none; }
     .button a:hover, div.cta section a:hover, .button label:hover, div.cta section label:hover {
@@ -348,11 +352,16 @@ header.platform {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
 
+@media only screen and (min-width: 45em) {
+  .steps {
+    margin-bottom: 8rem; } }
 .steps img {
   width: 200px; }
 @media only screen and (min-width: 45em) {
   .steps h3 {
     margin-top: 2rem; } }
+.steps p {
+  font-size: 1.2rem; }
 
 .colophon {
   margin-bottom: 2rem; }
@@ -379,13 +388,35 @@ header.platform {
     position: relative;
     padding: 0;
     margin-bottom: 4rem; }
+    .colophon .cta progress {
+      position: relative;
+      -webkit-transform: rotate(-90deg);
+              transform: rotate(-90deg);
+      -webkit-transform-origin: right;
+              transform-origin: right;
+      top: 0;
+      right: 1rem; }
+      .colophon .cta progress::before {
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        width: 1rem;
+        height: 1rem;
+        content: '40';
+        text-align: center;
+        font-size: 0.8rem;
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+        border-radius: 100%; }
     .colophon .cta p.pledges {
       display: inline-block;
       font-size: 1.8rem;
-      margin: 1rem 0; }
-      .colophon .cta p.pledges span.count {
-        font-size: 4.6rem;
-        line-height: 0.8; }
+      margin: 0; }
+      .colophon .cta p.pledges .count {
+        line-height: 1;
+        text-indent: -0.4rem; }
+    .colophon .cta span.sub-count {
+      font-size: 1.4rem; }
     .colophon .cta:before {
       background: #149865; }
     .colophon .cta .button, .colophon div.cta section {
@@ -395,7 +426,6 @@ header.platform {
         padding: 1rem 1.5rem; }
 
 h2 {
-  max-width: 600px;
   line-height: 1.2; }
   @media only screen and (min-width: 60em) {
     h2 {
@@ -431,7 +461,6 @@ table {
     padding: 0.4rem 0; }
     table td.highlight span {
       color: #3d3b36;
-      font-weight: 500;
       position: relative;
       z-index: 0; }
       table td.highlight span:before {
@@ -545,7 +574,6 @@ section.how-it-works {
       margin-bottom: 0;
       text-align: left;
       color: #05271a;
-      font-weight: 500;
       font-size: 1.5em;
       text-align: center; }
     section.how-it-works .bulb-step img {
@@ -569,8 +597,7 @@ div.cta {
       padding: 2rem 0;
       margin: 4rem 0 0 0; } }
   div.cta section h1, div.cta section h2 {
-    color: #FFFFFF;
-    font-weight: 700; }
+    color: #FFFFFF; }
 
 footer {
   background: #3d3b36;
@@ -600,13 +627,32 @@ img {
 .pledges {
   margin-bottom: 0; }
   .pledges .count {
-    font-size: 1.5em; }
+    font-size: 5.8rem; }
 
 .required-pledges {
   display: block;
   margin-top: 0;
   text-align: right;
   opacity: 0.5; }
+
+progress[value] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 100%;
+  height: 1rem; }
+  progress[value]::-webkit-progress-bar {
+    background: #0e6b47;
+    border-radius: 0.4rem; }
+  progress[value]::-moz-progress-bar {
+    background: #0e6b47;
+    border-radius: 0.4rem; }
+  progress[value]::-webkit-progress-value {
+    background: #FFFFFF;
+    border-radius: 0.4rem; }
+  progress[value]::-moz-progress-value {
+    background: #FFFFFF;
+    border-radius: 0.4rem; }
 
 .background-photo {
   width: 100%;
@@ -640,7 +686,7 @@ section.modal-layout {
   section.modal-layout label {
     width: 100%;
     display: inline-block;
-    font-weight: bolder; }
+    font-family: 'AvenirNextLTW01-Demi'; }
   section.modal-layout label, section.modal-layout p, section.modal-layout ul li {
     font-size: 1.2rem; }
   section.modal-layout input:not([type="checkbox"]) {
