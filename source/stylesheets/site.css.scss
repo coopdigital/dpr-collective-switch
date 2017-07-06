@@ -198,6 +198,9 @@ header.platform {
 }
 
 .steps {
+  @media only screen and (min-width: $breakpoint-med) {
+    margin-bottom: 8rem;
+  }
   img {
     width: 200px;
   }
