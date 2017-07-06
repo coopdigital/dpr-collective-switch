@@ -76,6 +76,10 @@ header.platform {
 
 .proposition {
   padding-top: 2rem;
+  > h2 {
+    margin: 1rem 0 4rem 0;
+    max-width: 600px;
+  }
   p {
     max-width: 600px;
   }
