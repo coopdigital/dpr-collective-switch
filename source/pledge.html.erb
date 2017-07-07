@@ -55,12 +55,7 @@ function hookFormSubmit() {
 function handleFormSubmit(event) {
   event.preventDefault();
   console.log("Form submitted");
-  validateCheckBoxChecked();
   postFormAsAjaxToGoogleForm(redirectToThanksPage);
-}
-
-function validateCheckBoxChecked() {
-  console.error("Not implemented: validateCheckBoxChecked");
 }
 
 function postFormAsAjaxToGoogleForm(onCompletion) {
@@ -69,15 +64,34 @@ function postFormAsAjaxToGoogleForm(onCompletion) {
       urlEncodedData = makeUrlEncodedData(form),
       request = new XMLHttpRequest();
 
+  function incrementThenRedirect() {
+    console.info("incrementThenRedirect");
+    incrementPledgeCounter(onCompletion);
+  }
+
   // Define what happens on successful data submission
-  request.addEventListener('load', onCompletion);
-  request.addEventListener('error', onCompletion);
+  request.addEventListener('load', incrementThenRedirect);
+  request.addEventListener('error', incrementThenRedirect);
 
   console.log("POST url: ", postUrl, "data: ", urlEncodedData);
 
   request.open('POST', postUrl, true);
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.send(urlEncodedData);
+}
+
+function incrementPledgeCounter(onCompletion) {
+  var postUrl = 'https://coop-switch-backend.herokuapp.com/schools/tottington/pledges/increment/',
+      request = new XMLHttpRequest();
+
+  // Define what happens on successful data submission
+  request.addEventListener('load', onCompletion);
+  request.addEventListener('error', onCompletion);
+
+  console.log("Incrementing pledges, posting to ", postUrl);
+
+  request.open('POST', postUrl, true);
+  request.send({});
 }
 
 function makeUrlEncodedData(form) {
