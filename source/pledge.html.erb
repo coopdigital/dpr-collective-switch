@@ -3,7 +3,7 @@
 
   <p>Fill in your contact details so that a Co-op Hero can call you and move you to a green energy company.</p>
 
-  <form action="https://docs.google.com/a/coopdigital.co.uk/forms/d/15-kMyrDi03EVF9jHU3yZojB0oBxw7KJ6implBOefcyw/formResponse" method="post">
+  <form id="switch-form" action="https://docs.google.com/a/coopdigital.co.uk/forms/d/15-kMyrDi03EVF9jHU3yZojB0oBxw7KJ6implBOefcyw/formResponse" method="post">
     <label>Your full name</label>
     <input type="text" name="entry.2139203857" value="" required>
 
@@ -21,7 +21,7 @@
     </ul>
 
     <label>
-      <input type="checkbox">
+      <input type="checkbox" name="entry.1283620258" required>
       I confirm that I am happy for a Co-op Hero to call me and change my supplier to a green energy company, and for my school to receive a payment from Co-op for referring me to this scheme.
     </label>
     <button class="confirm-button" type="submit">Confirm</button>
@@ -34,3 +34,77 @@
   <p>Co-op will keep these details secure and private and only share them with the green energy company they pick for you.</p>
 
 </section>
+
+<script>
+function ready(fn) {
+  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+ready(hookFormSubmit);
+
+function hookFormSubmit() {
+  var form = document.getElementById('switch-form');
+  form.addEventListener('submit', handleFormSubmit);
+  console.log("Added form.submit handler");
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  console.log("Form submitted");
+  validateCheckBoxChecked();
+  postFormAsAjaxToGoogleForm(redirectToThanksPage);
+}
+
+function validateCheckBoxChecked() {
+  console.error("Not implemented: validateCheckBoxChecked");
+}
+
+function postFormAsAjaxToGoogleForm(onCompletion) {
+  var form = document.getElementById('switch-form'),
+      postUrl = form.getAttribute('action'),
+      urlEncodedData = makeUrlEncodedData(form),
+      request = new XMLHttpRequest();
+
+  // Define what happens on successful data submission
+  request.addEventListener('load', onCompletion);
+  request.addEventListener('error', onCompletion);
+
+  console.log("POST url: ", postUrl, "data: ", urlEncodedData);
+
+  request.open('POST', postUrl, true);
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  request.send(urlEncodedData);
+}
+
+function makeUrlEncodedData(form) {
+  var inputs = form.getElementsByTagName('input'),
+      urlEncodedDataPairs = [],
+      urlEncodedData = "";
+
+  console.log(inputs);
+
+  for(var i = 0 ; i < inputs.length ; i++) {
+    console.log("input element: ", inputs[i]);
+    var inputName = inputs[i].getAttribute('name');
+
+    if(inputs[i].type == 'checkbox') {
+      var inputValue = inputs[i].checked;
+    } else {
+      var inputValue = inputs[i].value;
+    }
+
+    urlEncodedDataPairs.push(encodeURIComponent(inputName) + '=' + encodeURIComponent(inputValue));
+  }
+
+  urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+  return urlEncodedData;
+}
+
+function redirectToThanksPage() {
+  window.location.replace("thanks");
+}
+</script>
