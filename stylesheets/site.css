@@ -292,17 +292,11 @@ header.platform {
   right: -1rem; }
 
 .banner {
-  background: rgba(0, 114, 154, 0.8);
-  color: #FFFFFF;
-  overflow: hidden;
-  position: relative; }
+  background: #00729a;
+  color: #FFFFFF; }
   @media only screen and (min-width: 45em) {
     .banner {
       padding: 0 0 3rem 0; } }
-  .banner img.background-image {
-    position: absolute;
-    z-index: -1;
-    width: 100%; }
   .banner header.row {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -389,6 +383,8 @@ header.platform {
     display: block;
     font-size: 0.8rem;
     margin-bottom: 0.4rem; }
+  .colophon span.inline {
+    display: inline; }
   .colophon .cta {
     color: #FFFFFF;
     position: relative;
@@ -701,6 +697,17 @@ section.modal-layout {
     font-size: 1.8rem;
     color: #736F66;
     padding: 0.4rem; }
+  section.modal-layout button.confirm-button {
+    background: #149865;
+    color: #FFFFFF;
+    border: none;
+    font-size: 1.8rem;
+    margin: 2rem 0 4rem 0;
+    display: inline-block;
+    padding: 1.2rem 1.4rem;
+    font-family: 'AvenirNextLTW01-Demi';
+    border-radius: 0.5em;
+    text-decoration: none; }
   section.modal-layout p.button a {
     background: #149865;
     color: #FFFFFF;

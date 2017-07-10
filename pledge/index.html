@@ -17,15 +17,15 @@
 
   <p>Fill in your contact details so that a Co-op Hero can call you and move you to a green energy company.</p>
 
-  <form action="#" method="post">
+  <form id="switch-form" action="https://docs.google.com/a/coopdigital.co.uk/forms/d/15-kMyrDi03EVF9jHU3yZojB0oBxw7KJ6implBOefcyw/formResponse" method="post">
     <label>Your full name</label>
-    <input type="text" name="" value="" required>
+    <input type="text" name="entry.2139203857" value="" required>
 
     <label>Your telephone number</label>
-    <input type="text" name="" value="" required>
+    <input type="text" name="entry.27863669" value="" required>
     <label for="">Your current supplier</label>
     If you know the name of your energy company then fill it in. If you don’t, it’s OK to leave this blank.
-    <input type="text" name="" value="">
+    <input type="text" name="entry.1407955079" value="">
 
     <p>Please confirm that you agree to</p>
     <ul>
@@ -35,10 +35,10 @@
     </ul>
 
     <label>
-      <input type="checkbox">
+      <input type="checkbox" name="entry.1283620258" required>
       I confirm that I am happy for a Co-op Hero to call me and change my supplier to a green energy company, and for my school to receive a payment from Co-op for referring me to this scheme.
     </label>
-    <p class="button"><a href="/thanks">Confirm</a></p>
+    <button class="confirm-button" type="submit">Confirm</button>
   </form>
 
   <h2>What we do with the information you give us</h2>
@@ -49,8 +49,108 @@
 
 </section>
 
+<script>
+function ready(fn) {
+  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+ready(hookFormSubmit);
+
+function hookFormSubmit() {
+  var form = document.getElementById('switch-form');
+  form.addEventListener('submit', handleFormSubmit);
+  console.log("Added form.submit handler");
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  console.log("Form submitted");
+  postFormAsAjaxToGoogleForm(redirectToThanksPage);
+}
+
+function postFormAsAjaxToGoogleForm(onCompletion) {
+  var form = document.getElementById('switch-form'),
+      postUrl = form.getAttribute('action'),
+      urlEncodedData = makeUrlEncodedData(form),
+      request = new XMLHttpRequest();
+
+  function incrementThenRedirect() {
+    console.info("incrementThenRedirect");
+    incrementPledgeCounter(onCompletion);
+  }
+
+  // Define what happens on successful data submission
+  request.addEventListener('load', incrementThenRedirect);
+  request.addEventListener('error', incrementThenRedirect);
+
+  console.log("POST url: ", postUrl, "data: ", urlEncodedData);
+
+  request.open('POST', postUrl, true);
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  request.send(urlEncodedData);
+}
+
+function incrementPledgeCounter(onCompletion) {
+  var postUrl = 'https://coop-switch-backend.herokuapp.com/schools/tottington/pledges/increment/',
+      request = new XMLHttpRequest();
+
+  // Define what happens on successful data submission
+  request.addEventListener('load', onCompletion);
+  request.addEventListener('error', onCompletion);
+
+  console.log("Incrementing pledges, posting to ", postUrl);
+
+  request.open('POST', postUrl, true);
+  request.send({});
+}
+
+function makeUrlEncodedData(form) {
+  var inputs = form.getElementsByTagName('input'),
+      urlEncodedDataPairs = [],
+      urlEncodedData = "";
+
+  console.log(inputs);
+
+  for(var i = 0 ; i < inputs.length ; i++) {
+    console.log("input element: ", inputs[i]);
+    var inputName = inputs[i].getAttribute('name');
+
+    if(inputs[i].type == 'checkbox') {
+      var inputValue = inputs[i].checked;
+    } else {
+      var inputValue = inputs[i].value;
+    }
+
+    urlEncodedDataPairs.push(encodeURIComponent(inputName) + '=' + encodeURIComponent(inputValue));
+  }
+
+  urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+  return urlEncodedData;
+}
+
+function redirectToThanksPage() {
+  window.location.replace("/thanks");
+}
+</script>
+
     <!-- Start of HubSpot Embed Code -->
       <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3445942.js"></script>
     <!-- End of HubSpot Embed Code -->
+
+    <!-- Start of Google Analytics code -->
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-102317321-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+    <!-- End of Google Analytics code -->
   </body>
 </html>
