@@ -6,13 +6,23 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Hanover School's Green Energy Switch</title>
+    <title>Power Pack Switch</title>
     <link href="../stylesheets/site.css" rel="stylesheet" />
     <script src="../javascripts/site.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
   </head>
-  <body class="hanover hanover_index">
-    
+  <body class="hanover hanover_index hanover">
+    <header class="example-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p>This is an example fund-raising page for Hanover Primary School and is not currently active. </br>To
+        activate this fund-raiser, please email <a href="mailto:paul.furley@coopdigital.co.uk">paul.furley@coopdigital.co.uk</a></p>
+      </div>
+    </div>
+  </div>
+</header>
+
 <header class="platform">
   <div class="container">
     <div class="row">
@@ -40,13 +50,13 @@
   <div class="row headlines">
     <div class="col-3 colophon">
       <div class="cta">
-        <progress value="8" max="20"></progress>
+        <progress value="" max=""></progress>
 
-        <p class="pledges"><span class="count" data-pledges-got>8</span><span class="sub-count">families switched</span></p>
+        <p class="pledges"><span class="count" data-pledges-got></span><span class="sub-count">families switched</span></p>
 
-        <p class="button"><a href="/pledge">Join up</a></p>
+        <p class="button"><a href="pledge/">Join up</a></p>
 
-        <p>Hanover Primary School set a target of getting <span class="inline" data-pledges-target>20</span> families to switch. Join up to help them with their fundraising goal.</p>
+        <p>Hanover Primary School set a target of getting <span class="inline" data-pledges-target></span> families to switch. Join up to help them with their fundraising goal.</p>
       </div>
       <div class="green-mission">
         <p>Schools around the UK are joining Co-op to ensure we no longer need to burn fossil fuels.</p>
@@ -140,13 +150,13 @@
         <h1>Ready to go?</h1>
         <p>Give us permission to do the hard work and help your school reach their fundraising goal.</p>
 
-        <p class="pledges"><span class="count" data-pledges-got>8</span> families switched</p>
+        <p class="pledges"><span class="count" data-pledges-got></span> families switched</p>
 
-        <progress value="8" max="20"></progress>
+        <progress value="" max=""></progress>
 
-        <span class="required-pledges" data-pledges-target>20</span>
+        <span class="required-pledges" data-pledges-target></span>
 
-        <p class="button"><a href="/pledge">Join up</a></p>
+        <p class="button"><a href="pledge/">Join up</a></p>
       </div>
     </section>
   </div>
@@ -179,7 +189,7 @@ ready(downloadAndUpdatePledgeNumbers);
 
 function downloadAndUpdatePledgeNumbers() {
   var request = new XMLHttpRequest();
-  request.open('GET', 'https://coop-switch-backend.herokuapp.com/schools/tottington/pledges/', true);
+  request.open('GET', 'https://coop-switch-backend.herokuapp.com/schools/hanover/pledges/', true);
 
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
@@ -225,7 +235,6 @@ function updateElementsWithSelector(selector, value) {
 
 </script>
 
-
     <!-- Start of HubSpot Embed Code -->
       <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3445942.js"></script>
     <!-- End of HubSpot Embed Code -->
@@ -237,7 +246,7 @@ function updateElementsWithSelector(selector, value) {
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-102317321-1', 'auto');
+        ga('create', 'UA-96483473-2', 'auto');
         ga('send', 'pageview');
       </script>
     <!-- End of Google Analytics code -->

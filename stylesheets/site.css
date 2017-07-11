@@ -404,7 +404,7 @@ header.platform {
         right: 0;
         width: 1rem;
         height: 1rem;
-        content: '40';
+        content: attr(max);
         text-align: center;
         font-size: 0.8rem;
         -webkit-transform: rotate(90deg);
@@ -665,11 +665,11 @@ progress[value] {
     .background-photo {
       height: 500px; } }
 
-body.pledge_index {
+body.pledge {
   padding: 2rem 0;
   margin-bottom: 4rem;
   background: #149865; }
-body.thanks_index {
+body.thanks {
   padding: 2rem 0;
   margin-bottom: 4rem;
   background: #00729a; }
@@ -712,3 +712,9 @@ section.modal-layout {
     background: #149865;
     color: #FFFFFF;
     font-size: 1.8rem; }
+
+header.example-banner {
+  background: #7d3c5a;
+  color: #FFFFFF; }
+  header.example-banner p {
+    font-size: 1rem; }

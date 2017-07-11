@@ -11,12 +11,12 @@
     <script src="../javascripts/site.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
   </head>
-  <body class="tottington tottington_index tottington">
+  <body class="st-edmund-arrowsmith st-edmund-arrowsmith_index st-edmund-arrowsmith">
     <header class="example-banner">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <p>This is an example fund-raising page for Tottington High School and is not currently active. </br>To
+        <p>This is an example fund-raising page for St Edmund Arrowsmith Catholic High School and is not currently active. </br>To
         activate this fund-raiser, please email <a href="mailto:paul.furley@coopdigital.co.uk">paul.furley@coopdigital.co.uk</a></p>
       </div>
     </div>
@@ -37,10 +37,10 @@
   <div class="container">
     <header class="row">
       <div class="col-3">
-        <img src="../images/tottington/logo.jpg" class="" alt="Logo" />
+        <img src="../images/st-edmund-arrowsmith/logo.jpg" class="" alt="Logo" />
       </div>
       <div class="col-9">
-        <h1>Raise money for Tottington High School</h1>
+        <h1>Raise money for St Edmund Arrowsmith Catholic High School</h1>
       </div>
     </header>
   </div>
@@ -56,7 +56,7 @@
 
         <p class="button"><a href="pledge/">Join up</a></p>
 
-        <p>Tottington High School set a target of getting <span class="inline" data-pledges-target></span> families to switch. Join up to help them with their fundraising goal.</p>
+        <p>St Edmund Arrowsmith Catholic High School set a target of getting <span class="inline" data-pledges-target></span> families to switch. Join up to help them with their fundraising goal.</p>
       </div>
       <div class="green-mission">
         <p>Schools around the UK are joining Co-op to ensure we no longer need to burn fossil fuels.</p>
@@ -64,12 +64,12 @@
     </div>
     <div class="col-9 proposition">
 
-      <h2>Let Co-op change your energy provider for you and raise money for Tottington High School</h2>
+      <h2>Let Co-op change your energy provider for you and raise money for St Edmund Arrowsmith Catholic High School</h2>
 
       <div class="cause-story">
 
         <div class="col-2">
-          <img src="../images/tottington/logo.jpg" class="" alt="Logo" />
+          <img src="../images/st-edmund-arrowsmith/logo.jpg" class="" alt="Logo" />
         </div>
         <div class="col-10">
           <blockquote>
@@ -122,7 +122,7 @@
 <div class="container">
   <div class="row steps">
     <div class="col-12">
-      <h2>How Tottington High School benefits</h2>
+      <h2>How St Edmund Arrowsmith Catholic High School benefits</h2>
     </div>
     <div class="col-4">
       <img src="../images/icon-pledge.svg" class="" alt="Icon pledge" />
@@ -137,7 +137,7 @@
     <div class="col-4">
       <img src="../images/icon-benefit.svg" class="" alt="Icon benefit" />
       <h3>Your school benefits</h3>
-      <p>Tottington High School gets £25 for every family that upgrades</p>
+      <p>St Edmund Arrowsmith Catholic High School gets £25 for every family that upgrades</p>
     </div>
 
 
@@ -189,7 +189,7 @@ ready(downloadAndUpdatePledgeNumbers);
 
 function downloadAndUpdatePledgeNumbers() {
   var request = new XMLHttpRequest();
-  request.open('GET', 'https://coop-switch-backend.herokuapp.com/schools/tottington/pledges/', true);
+  request.open('GET', 'https://coop-switch-backend.herokuapp.com/schools/st-edmund-arrowsmith/pledges/', true);
 
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
