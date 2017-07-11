@@ -19,13 +19,18 @@ page '/*.txt', layout: false
 # Proxy pages
 # https://middlemanapp.com/advanced/dynamic-pages/
 
-# proxy(
-#   '/this-page-has-no-template.html',
-#   '/template-file.html',
-#   locals: {
-#     which_fake_page: 'Rendering a fake page with a local variable'
-#   },
-# )
+data.schools.schools.each do |school|
+    slug = school[0]
+    name = school[1]
+    story = school[2]
+  
+    proxy "/#{slug}/index.html", "/templates/school.html", :locals => { :slug => slug, :name => name, :story => story }, :ignore => true
+
+    proxy "/#{slug}/pledge/index.html", "/templates/pledge.html", :locals => { :slug => slug, :name => name }, :ignore => true
+
+    proxy "/#{slug}/thanks/index.html", "/templates/thanks.html", :locals => { :slug => slug, :name => name }, :ignore => true
+end
+
 
 # Helpers
 # Methods defined in the helpers block are available in templates
@@ -54,7 +59,7 @@ activate :deploy do |deploy|
   # deploy.commit_message = 'custom-message'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`
 end
 
-activate :livereload
+activate :livereload, js_host: '10.0.0.2'
 
 activate :relative_assets
 set :relative_links, true
