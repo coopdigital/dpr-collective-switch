@@ -36,6 +36,13 @@ end
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 
+helpers do
+  def custom_page_classes
+    last_url_part = current_resource.url.split('/').last
+    page_classes + " " + last_url_part
+  end
+end
+
 # helpers do
 #   def some_helper
 #     'Helping'

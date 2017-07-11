@@ -621,12 +621,12 @@ progress[value] {
 }
 
 body {
-  &.pledge_index {
+  &.pledge {
     padding: 2rem 0;
     margin-bottom: 4rem;
     background: $pink;
   }
-  &.thanks_index {
+  &.thanks {
     padding: 2rem 0;
     margin-bottom: 4rem;
     background: $blue;
