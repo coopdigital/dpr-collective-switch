@@ -261,7 +261,7 @@ header.platform {
         right: 0;
         width: 1rem;
         height: 1rem;
-        content: '40';
+        content: attr(max);
         text-align: center;
         font-size: 0.8rem;
         transform: rotate(90deg);
