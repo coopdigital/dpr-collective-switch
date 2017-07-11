@@ -24,7 +24,10 @@
       <input type="checkbox" name="entry.1283620258" required>
       I confirm that I am happy for a Co-op Hero to call me and change my supplier to a green energy company, and for my school to receive a payment from Co-op for referring me to this scheme.
     </label>
+
+    <input type="hidden" name="entry.776738560" value="<%= slug %>">
     <button class="confirm-button" type="submit">Confirm</button>
+    <%= link_to '', '/' + slug + '/thanks/index.html', :id => 'thanks-button', :style => 'display: none' %></p>
   </form>
 
   <h2>What we do with the information you give us</h2>
@@ -81,7 +84,7 @@ function postFormAsAjaxToGoogleForm(onCompletion) {
 }
 
 function incrementPledgeCounter(onCompletion) {
-  var postUrl = 'https://coop-switch-backend.herokuapp.com/schools/tottington/pledges/increment/',
+  var postUrl = 'https://coop-switch-backend.herokuapp.com/schools/<%= slug %>/pledges/increment/',
       request = new XMLHttpRequest();
 
   // Define what happens on successful data submission
@@ -119,6 +122,7 @@ function makeUrlEncodedData(form) {
 }
 
 function redirectToThanksPage() {
-  window.location.replace("/thanks");
+  var thanksButton = document.getElementById('thanks-button');
+  thanksButton.click();
 }
 </script>

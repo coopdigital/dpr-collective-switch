@@ -1,4 +1,6 @@
-<% wrap_layout :layout do %>
+---
+layout: layout
+---
 
 <header class="platform">
   <div class="container">
@@ -14,10 +16,10 @@
   <div class="container">
     <header class="row">
       <div class="col-3">
-        <%= image_tag current_page.data.slug + '/logo.jpg', class: "" %>
+        <%= image_tag slug + '/logo.jpg', class: "" %>
       </div>
       <div class="col-9">
-        <h1>Raise money for <%= current_page.data.school_name %></h1>
+        <h1>Raise money for <%= name %></h1>
       </div>
     </header>
   </div>
@@ -27,13 +29,13 @@
   <div class="row headlines">
     <div class="col-3 colophon">
       <div class="cta">
-        <progress value="<%= current_page.data.pledges_got %>" max="<%= current_page.data.pledges_needed %>"></progress>
+        <progress value="" max=""></progress>
 
         <p class="pledges"><span class="count" data-pledges-got><%= current_page.data.pledges_got %></span><span class="sub-count">families switched</span></p>
 
-        <p class="button"><%= link_to 'Join up', '/pledge' %></p>
+        <p class="button"><%= link_to 'Join up', '/' + slug + '/pledge/index.html' %></p>
 
-        <p><%= current_page.data.school_name %> set a target of getting <span class="inline" data-pledges-target><%= current_page.data.pledges_needed %></span> families to switch. Join up to help them with their fundraising goal.</p>
+        <p><%= name %> set a target of getting <span class="inline" data-pledges-target><%= current_page.data.pledges_needed %></span> families to switch. Join up to help them with their fundraising goal.</p>
       </div>
       <div class="green-mission">
         <p>Schools around the UK are joining Co-op to ensure we no longer need to burn fossil fuels.</p>
@@ -41,16 +43,16 @@
     </div>
     <div class="col-9 proposition">
 
-      <h2>Let Co-op change your energy provider for you and raise money for <%= current_page.data.school_name %></h2>
+      <h2>Let Co-op change your energy provider for you and raise money for <%= name %></h2>
 
       <div class="cause-story">
 
         <div class="col-2">
-          <%= image_tag current_page.data.slug + '/logo.jpg', class: "" %>
+          <%= image_tag slug + '/logo.jpg', class: "" %>
         </div>
         <div class="col-10">
           <blockquote>
-            <p><%= current_page.data.school_story %></p>
+            <p><%= story %></p>
           </blockquote>
 
         </div>
@@ -99,7 +101,7 @@
 <div class="container">
   <div class="row steps">
     <div class="col-12">
-      <h2>How <%= current_page.data.school_name %> benefits</h2>
+      <h2>How <%= name %> benefits</h2>
     </div>
     <div class="col-4">
       <%= image_tag "icon-pledge.svg", class: "" %>
@@ -114,7 +116,7 @@
     <div class="col-4">
       <%= image_tag "icon-benefit.svg", class: "" %>
       <h3>Your school benefits</h3>
-      <p><%= current_page.data.school_name %> gets £25 for every family that upgrades</p>
+      <p><%= name %> gets £25 for every family that upgrades</p>
     </div>
 
 
@@ -129,11 +131,11 @@
 
         <p class="pledges"><span class="count" data-pledges-got><%= current_page.data.pledges_got %></span> families switched</p>
 
-        <progress value="<%= current_page.data.pledges_got %>" max="<%= current_page.data.pledges_needed %>"></progress>
+        <progress value="" max=""></progress>
 
         <span class="required-pledges" data-pledges-target><%= current_page.data.pledges_needed %></span>
 
-        <p class="button"><%= link_to 'Join up', '/pledge' %></p>
+        <p class="button"><%= link_to 'Join up', '/' + slug + '/pledge/index.html' %></p>
       </div>
     </section>
   </div>
@@ -166,7 +168,7 @@ ready(downloadAndUpdatePledgeNumbers);
 
 function downloadAndUpdatePledgeNumbers() {
   var request = new XMLHttpRequest();
-  request.open('GET', 'https://coop-switch-backend.herokuapp.com/schools/tottington/pledges/', true);
+  request.open('GET', 'https://coop-switch-backend.herokuapp.com/schools/<%= slug %>/pledges/', true);
 
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
@@ -211,5 +213,3 @@ function updateElementsWithSelector(selector, value) {
 
 
 </script>
-
-<% end %>
