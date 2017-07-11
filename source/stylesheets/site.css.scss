@@ -684,3 +684,11 @@ section.modal-layout {
     }
   }
 }
+
+header.example-banner {
+  background: darken($cadillac, 10);
+  color: $white;
+  p {
+    font-size: 1rem;
+  }
+}
